@@ -4,7 +4,7 @@
   "description": "Application developed to be able to keep track on my geek stuff",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,8 @@
     "mongoose": "^6.3.4",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
