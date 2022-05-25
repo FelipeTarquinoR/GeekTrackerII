@@ -6,7 +6,12 @@ const router = express.Router()
 
 //Main page route execution
 router.get('/', (req, res) => {
-    res.send('Index')
+    res.render('index')
+})
+
+//About page route execution
+router.get('/about', (req, res) => {
+    res.render('about')
 })
 
 //export block

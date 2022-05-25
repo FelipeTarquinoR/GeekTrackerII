@@ -5,11 +5,11 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/usuarios/login', (req, res) => {
-    res.send('Ingreso')
+    res.render('users/login')
 })
 
 router.get('/usuarios/registro', (req, res) => {
-    res.send('Registro')
+    res.render('users/register')
 })
 
 //export block
