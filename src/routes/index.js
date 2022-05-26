@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 })
 
 //About page route execution
-router.get('/about', (req, res) => {
+router.get('/Acerca-de-nosotros', (req, res) => {
     res.render('about')
 })
 
