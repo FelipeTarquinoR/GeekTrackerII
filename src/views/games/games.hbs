@@ -1,10 +1,12 @@
 <div class="container pt-4">
     <div id="add-div" class="border border-info bg-light">
-        <form action="/games/new-game" method="POST" class="d-flex flexrow justify-content-around ps-3 pe-3">
+        <form onsubmit="return validate()" action="/games/new-game" method="POST"
+            class="d-flex flexrow justify-content-around ps-3 pe-3">
             <label class="mt-auto mb-auto">Título</label>
-            <input type="text" name="Title" class="form-control-sm border border-info m-1" placeholder="Nombre del juego">
+            <input id="game-text" type="text" name="Title" class="form-control-sm border border-info m-1"
+                placeholder="Nombre del juego">
             <label class="mt-auto mb-auto">Plataforma</label>
-            <select name="Platform" class="form-control-sm border border-info m-1">
+            <select id="platform-select" name="Platform" class="form-control-sm border border-info m-1">
                 <option disabled selected value>- o -</option>
                 <option value="PC">PC</option>
                 <option value="Wii">Wii</option>
@@ -15,7 +17,7 @@
                 <option value="PS5">PS5</option>
             </select>
             <label class="mt-auto mb-auto">Calificación</label>
-            <select name="Note" class="form-control-sm border border-info m-1">
+            <select id="note-select" name="Note" class="form-control-sm border border-info m-1">
                 <option disabled selected value>- o -</option>
                 <option valie="0">0</option>
                 <option valie="1">1</option>
@@ -29,7 +31,7 @@
                 <option valie="9">9</option>
                 <option valie="10">10</option>
             </select>
-            <button type="submit" class="btn btn-outline-primary btn-sm border border-info m-1">+</button>
+            <button id="game-add-button" type="submit" class="btn btn-outline-primary btn-sm border border-info m-1">+</button>
         </form>
     </div>
     <div id="table-div" class="border border-info bg-light mt-3">

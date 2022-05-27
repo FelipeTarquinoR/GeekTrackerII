@@ -5,24 +5,9 @@ const express = require('express')
 const req = require('express/lib/request')
 const router = express.Router()
 
-//Game Addind route
+//Game Adding route
 router.post('/games/new-game', (req, res) => {
-    const {Title, Platform, Note} = req.body
-    const errors = []
-    if(!Title){
-        errors.push({text: "Ingrese el título"})
-    }
-    if(!Platform){
-        errors.push({text: "Seleccione una plataforma"})
-    }
-    if(!Note){
-        errors.push({text: "Seleccione una plataforma"})
-    }
-    if(errors.length > 0){
-        
-    } else{
-        res.send("ok")
-    }
+    console.log(req.body);
 })
 
 //Game routes execution
