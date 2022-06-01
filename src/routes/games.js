@@ -8,6 +8,7 @@ const router = express.Router()
 //Game Adding route
 router.post('/games/new-game', (req, res) => {
     console.log(req.body);
+    res.send('ok')
 })
 
 //Game routes execution

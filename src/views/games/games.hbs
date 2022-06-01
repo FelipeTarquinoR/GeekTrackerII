@@ -19,20 +19,41 @@
             <label class="mt-auto mb-auto">Calificación</label>
             <select id="note-select" name="Note" class="form-control-sm border border-info m-1">
                 <option disabled selected value>- o -</option>
-                <option valie="0">0</option>
-                <option valie="1">1</option>
-                <option valie="2">2</option>
-                <option valie="3">3</option>
-                <option valie="4">4</option>
-                <option valie="5">5</option>
-                <option valie="6">6</option>
-                <option valie="7">7</option>
-                <option valie="8">8</option>
-                <option valie="9">9</option>
-                <option valie="10">10</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
             </select>
             <button id="game-add-button" type="submit" class="btn btn-outline-primary btn-sm border border-info m-1">+</button>
         </form>
+        <script>
+            let gameAddButton = document.getElementById("game-add-button")
+            gameAddButton.addEventListener("click", validate)
+            function validate() {
+                let gameText = document.getElementById("game-text")
+                let platformSelect = document.getElementById("platform-select")
+                let noteSelect = document.getElementById("note-select")
+                if (gameText.value == "" && platformSelect.value == "" && noteSelect.value == "") {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: '¡Llena los campos!',
+                    })
+                    return false
+                }
+                else {
+                    return true
+                }
+            }
+        </script>
+        
     </div>
     <div id="table-div" class="border border-info bg-light mt-3">
         <table id="played-games" class="table">
