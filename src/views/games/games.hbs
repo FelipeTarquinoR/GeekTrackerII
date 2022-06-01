@@ -1,4 +1,5 @@
 <div class="container pt-4">
+    <!-- Adding game form -->
     <div id="add-div" class="border border-info bg-light">
         <form onsubmit="return validate()" action="/games/new-game" method="POST"
             class="d-flex flexrow justify-content-around ps-3 pe-3">
@@ -31,7 +32,8 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
             </select>
-            <button id="game-add-button" type="submit" class="btn btn-outline-primary btn-sm border border-info m-1">+</button>
+            <button id="game-add-button" type="submit" class="btn btn-outline-primary btn-sm border border-info m-1"><i
+                    class="bi bi-plus-lg"></i></button>
         </form>
         <script>
             let gameAddButton = document.getElementById("game-add-button")
@@ -53,37 +55,40 @@
                 }
             }
         </script>
-        
+
     </div>
+    <!-- Consulting games table -->
     <div id="table-div" class="border border-info bg-light mt-3">
         <table id="played-games" class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th>#</th>
+                    <th>Título</th>
+                    <th>Plataforma</th>
+                    <th>Nota</th>
+                    <th>Editar</th>
                 </tr>
             </thead>
             <tbody>
+                {{#each games}}
+                <!-- Handlebars for function that uses the array from the games.js roures file -->
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>{{@index}}</td><!-- Array property used to display the number -->
+                    <td>{{Title}}</td><!-- Using handlebars array -->
+                    <td>{{Platform}}</td>
+                    <td>{{Note}}</td>
+                    <td>
+                        <form>
+                            <button id="game-edit-button" type="submit"
+                                class="btn btn-outline-primary btn-sm border border-info m-1"><i
+                                    class="bi bi-pencil-fill"></i></button>
+                            <button id="game-delete-button" type="submit"
+                                class="btn btn-outline-primary btn-sm border border-info m-1"><i
+                                    class="bi bi-dash-lg"></i></button>
+                        </form>
+                    </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                {{/each}}
             </tbody>
         </table>
     </div>
