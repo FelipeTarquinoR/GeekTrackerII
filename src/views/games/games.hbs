@@ -4,40 +4,38 @@
         <form onsubmit="return validate()" action="/games/new-game" method="POST"
             class="d-flex flexrow justify-content-around ps-3 pe-3">
             <label class="mt-auto mb-auto">Título</label>
-            <input id="game-text" type="text" name="Title" class="form-control-sm border border-info m-1"
+            <input id="game-text" type="text" name="Title" class="form-control-sm border border-info m-1 w-25"
                 placeholder="Nombre del juego">
             <label class="mt-auto mb-auto">Plataforma</label>
             <select id="platform-select" name="Platform" class="form-control-sm border border-info m-1">
                 <option disabled selected value>- o -</option>
-                <option value="PC">PC</option>
-                <option value="Wii">Wii</option>
-                <option value="PS1">PS1</option>
-                <option value="PS2">PS2</option>
-                <option value="PS3">PS3</option>
-                <option value="PS4">PS4</option>
-                <option value="PS5">PS5</option>
+                {{#each platforms}}
+                <option value="{{Platform_name}}">{{Platform_name}}</option>
+                {{/each}}
             </select>
             <label class="mt-auto mb-auto">Calificación</label>
-            <select id="note-select" name="Note" class="form-control-sm border border-info m-1">
-                <option disabled selected value>- o -</option>
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select>
+            <div id="note-select-div">
+                <select id="note-select" name="Note" class="form-control-sm border border-info m-1 d-inline">
+                    <option disabled selected value>- o -</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <p class="mt-auto mb-auto d-inline">/10</p>
+            </div>
             <button id="game-add-button" type="submit" class="btn btn-outline-primary btn-sm border border-info m-1"><i
                     class="bi bi-plus-lg"></i></button>
         </form>
         <script>
-            let gameAddButton = document.getElementById("game-add-button")
-            gameAddButton.addEventListener("click", validate)
+            let gameAddButton = document.getElementById("game-add-button").addEventListener("click", validate)
             function validate() {
                 let gameText = document.getElementById("game-text")
                 let platformSelect = document.getElementById("platform-select")
@@ -76,15 +74,17 @@
                     <td>{{@index}}</td><!-- Array property used to display the number -->
                     <td>{{Title}}</td><!-- Using handlebars array -->
                     <td>{{Platform}}</td>
-                    <td>{{Note}}</td>
+                    <td>{{Note}}/10</td>
                     <td>
                         <form>
-                            <button id="game-edit-button" type="submit"
-                                class="btn btn-outline-primary btn-sm border border-info m-1"><i
-                                    class="bi bi-pencil-fill"></i></button>
-                            <button id="game-delete-button" type="submit"
-                                class="btn btn-outline-primary btn-sm border border-info m-1"><i
-                                    class="bi bi-dash-lg"></i></button>
+                            <div class="btn-group" role="group" aria-label="Edit and Delete group">
+                                <button id="game-edit-button" type="submit"
+                                    class="btn btn-outline-primary btn-sm border border-info"><i
+                                        class="bi bi-pencil-fill"></i></button>
+                                <button id="game-delete-button" type="submit"
+                                    class="btn btn-outline-primary btn-sm border border-info"><i
+                                        class="bi bi-dash-lg"></i></button>
+                            </div>
                         </form>
                     </td>
                 </tr>
